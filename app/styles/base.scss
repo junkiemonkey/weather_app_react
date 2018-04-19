@@ -1,0 +1,36 @@
+@import "variables";
+
+*, *:after, *:before {
+  box-sizing: border-box;
+}
+body, html {
+  height: 100%;
+}
+#app {
+  background-image: linear-gradient(#fafafa, #fff);
+  //height: 100%;
+}
+.container {
+  padding-bottom: 50px;
+  background-color: #fff;
+  width: 100%;
+  max-width: $max;
+  min-width: $min;
+  margin: auto;
+  //padding: 0 15px;
+}
+
+.app-loader {
+  position: relative;
+  min-height: 300px;
+}
+
+.empty {
+  text-align: center;
+  font-size: 16px;
+  margin: 50px 0;
+}
+
+@import "header";
+@import "search";
+@import "table";

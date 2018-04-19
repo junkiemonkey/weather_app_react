@@ -1,0 +1,48 @@
+.table {
+  padding: 0 5%;
+  margin-top: 30px;
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    th {
+      font-weight: bold;
+      font-size: 16px;
+      padding: 5px 15px 15px;
+      border-bottom: 2px solid $border;
+      width: 25%;
+      &:first-child {
+        cursor: pointer;
+      }
+    }
+    td {
+      text-align: center;
+      padding: 10px 0;
+      border-bottom: 1px solid $border;
+      button {
+        background-color: #fafafa;
+        border: 1px solid $border;
+        border-radius: 3px;
+        cursor: pointer;
+        transition: all .5s;
+        height: 25px;
+        &:hover {
+          background-color: #f0f0f0;
+        }
+      }
+    }
+  }
+  &__sort {
+    display: inline-block;
+    vertical-align: middle;
+    width: 5px;
+    height: 5px;
+    border-style: solid;
+    border-width: 5px;
+    border-color: #a0a0a0 transparent transparent transparent;
+    margin-top: 5px;
+    &--reverse {
+      margin: 0 0 5px;
+      border-color: transparent transparent #a0a0a0 transparent;
+    }
+  }
+}
