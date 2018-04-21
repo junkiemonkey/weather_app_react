@@ -5,14 +5,20 @@ import {
   DONE,
   FAIL,
   REMOVE_CITY,
+  INIT_TABLE_DATA,
 } from '../constants';
 
-const initialState = {
-  tableData: getDataFromStorage(),
+export const initialState = {
+  tableData: [],
   error: null,
 };
 
 export default handleActions({
+
+  [INIT_TABLE_DATA]: (state, { payload }) => ({
+    ...state,
+    tableData: payload,
+  }),
 
   [FETCH_CITY + DONE]: (state, { payload: { id, name, main: { temp, pressure } } }) => ({
     ...state,

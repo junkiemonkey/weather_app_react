@@ -1,15 +1,16 @@
 import React, { Component } from 'react';
 import { array, func } from 'prop-types';
 import { connect } from 'react-redux';
-import { removeCity } from '../../actions';
-import { setDataToStorage } from '../../utils';
+import { removeCity, initTableData } from '../../actions';
+import { setDataToStorage, getDataFromStorage } from '../../utils';
 import Table from '../../components/Table';
 
-@connect(({ weather }) => weather, { removeCity })
+@connect(({ weather }) => weather, { removeCity, initTableData })
 export default class TableContainer extends Component {
   static propTypes = {
     tableData: array,
     removeCity: func,
+    initTableData: func,
   }
 
   constructor(props) {
@@ -19,6 +20,11 @@ export default class TableContainer extends Component {
       tableData,
       reverse: false,
     };
+  }
+
+  componentWillMount() {
+    const tableData = getDataFromStorage();
+    this.props.initTableData(tableData);
   }
 
   componentWillReceiveProps(props) {
